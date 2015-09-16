@@ -18,10 +18,14 @@ func counter(n int) <-chan int {
 }
 
 func main() {
-	c1 := counter(4)
-	c2 := counter(44)
-	for i := 0; i < 5; i++ {
-		fmt.Println(<-c1)
-		fmt.Println(<-c2)
-	}
+	c := counter(17)
+	c2 := counter(85)
+
+	//Take init val
+	fmt.Println(<-c)
+	fmt.Println(<-c2)
+
+	//Now there are incremented values in channels
+	fmt.Println(<-c)
+	fmt.Println(<-c2)
 }
